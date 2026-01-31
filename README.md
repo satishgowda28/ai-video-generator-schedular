@@ -53,6 +53,14 @@ This project uses Supabase for the database and authentication.
     - `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase Project URL.
     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase Anon Key.
 
+### 3. Clerk Authentication Setup
+1.  Update `.env.local` with your Clerk credentials:
+    - `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`
+    - `CLERK_SECRET_KEY`
+    - `NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in`
+    - `NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up`
+
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

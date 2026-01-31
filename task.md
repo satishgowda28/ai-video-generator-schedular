@@ -16,3 +16,24 @@
     - [x] Create `lib/supabase/server.ts` <!-- id: 15 -->
     - [x] Add setup instructions to README.md <!-- id: 16 -->
     - [x] Revert Global Provider (per user request) <!-- id: 17 -->
+- [x] Clerk Authentication <!-- id: 18 -->
+    - [x] Install `@clerk/nextjs` <!-- id: 19 -->
+    - [x] Update `.env.local.example` with Clerk keys <!-- id: 20 -->
+    - [x] Add `middleware.ts` <!-- id: 21 -->
+    - [x] Wrap app in `ClerkProvider` in `layout.tsx` <!-- id: 22 -->
+    - [x] Create Sign In page (`app/sign-in/[[...sign-in]]/page.tsx`) <!-- id: 23 -->
+    - [x] Create Sign Up page (`app/sign-up/[[...sign-up]]/page.tsx`) <!-- id: 24 -->
+- [x] Fixes <!-- id: 25 -->
+    - [x] Fix broken "Login" and "Get Started" links in Navbar <!-- id: 26 -->
+    - [x] Fix broken "Start Generating Free" link in Hero <!-- id: 27 -->
+    - [x] Conditionally render UserButton/Auth buttons in Navbar <!-- id: 28 -->
+- [x] User Sync & Dashboard <!-- id: 29 -->
+    - [x] (Skipped) `supabase/schema.sql` (User confirmed table exists) <!-- id: 30 -->
+    - [x] Create `app/dashboard/page.tsx` with lazy sync logic <!-- id: 31 -->
+    - [x] Update Navbar with "Dashboard" link <!-- id: 32 -->
+    - [x] Update Hero CTA to point to Dashboard <!-- id: 33 -->
+    - [x] Fix RLS Error with `createAdminClient` <!-- id: 38 -->
+- [x] Refactor User Sync <!-- id: 34 -->
+    - [x] Create `actions/user.ts` (Server Action) <!-- id: 35 -->
+    - [x] Update `app/dashboard/page.tsx` to use server action <!-- id: 36 -->
+    - [x] Update sync logic to save only `user_id`, `name`, `email` <!-- id: 37 -->

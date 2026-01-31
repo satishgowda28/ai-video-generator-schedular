@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 
@@ -42,11 +43,21 @@ export function Navbar() {
           </Link>
         </div>
         <div className="flex items-center gap-4">
-          <div className="hidden md:flex gap-2">
-            <Button variant="ghost" size="sm">
-              Log in
-            </Button>
-            <Button size="sm">Get Started</Button>
+          <div className="hidden md:flex gap-2 items-center">
+            <SignedOut>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/sign-in">Log in</Link>
+              </Button>
+              <Button size="sm" asChild>
+                <Link href="/sign-up">Get Started</Link>
+              </Button>
+            </SignedOut>
+            <SignedIn>
+              <Button variant="ghost" size="sm" asChild>
+                  <Link href="/dashboard">Dashboard</Link>
+              </Button>
+              <UserButton />
+            </SignedIn>
           </div>
           <ModeToggle />
           <div className="md:hidden">
@@ -80,10 +91,19 @@ export function Navbar() {
                     About
                   </Link>
                   <div className="flex flex-col gap-2 mt-4">
-                    <Button variant="outline" className="w-full">
-                      Log in
-                    </Button>
-                    <Button className="w-full">Get Started</Button>
+                    <SignedOut>
+                      <Button variant="outline" className="w-full" asChild>
+                          <Link href="/sign-in">Log in</Link>
+                      </Button>
+                      <Button className="w-full" asChild>
+                          <Link href="/sign-up">Get Started</Link>
+                      </Button>
+                    </SignedOut>
+                    <SignedIn>
+                        <div className="flex justify-center py-2">
+                            <UserButton />
+                        </div>
+                    </SignedIn>
                   </div>
                 </div>
               </SheetContent>

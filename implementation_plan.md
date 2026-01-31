@@ -71,6 +71,40 @@ I will create a new directory `components/landing` to organize landing page spec
 #### [NEW] [lib/supabase/server.ts](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/lib/supabase/server.ts)
 - Create a typed Supabase client for server-side components (Server Actions, Route Handlers) using `createServerClient` with cookie handling.
 
+### Clerk Authentication
+#### [NEW] [package.json](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/package.json)
+- Install `@clerk/nextjs`.
+
+#### [NEW] [.env.local.example](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/.env.local.example)
+- Add templates for `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`, `NEXT_PUBLIC_CLERK_SIGN_IN_URL`, and `NEXT_PUBLIC_CLERK_SIGN_UP_URL`.
+
+#### [NEW] [middleware.ts](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/middleware.ts)
+- Create middleware to protect routes using `clerkMiddleware`.
+
+#### [MODIFY] [layout.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/app/layout.tsx)
+- Wrap the main application in `ClerkProvider`.
+
+#### [NEW] [app/sign-in/[[...sign-in]]/page.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/app/sign-in/[[...sign-in]]/page.tsx)
+- Create a Sign In page with `<SignIn />` component.
+
+#### [NEW] [app/sign-up/[[...sign-up]]/page.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/app/sign-up/[[...sign-up]]/page.tsx)
+- Create a Sign Up page with `<SignUp />` component.
+
+### User Synchronization & Dashboard
+#### [NEW] [supabase/schema.sql](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/supabase/schema.sql)
+- Create SQL file with `users` table definition (`id`, `email`, `first_name`, `last_name`, `image_url`, `created_at`).
+
+#### [NEW] [app/dashboard/page.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/app/dashboard/page.tsx)
+- Create a protected dashboard page.
+- Implement "Lazy Sync": Check if user exists in Supabase. If not, insert user data from Clerk.
+
+#### [MODIFY] [components/landing/navbar.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/components/landing/navbar.tsx)
+- Add "Dashboard" button.
+- Logic: If authenticated -> Link to `/dashboard`. If not -> Link to `/sign-up`.
+
+#### [MODIFY] [components/landing/hero.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/components/landing/hero.tsx)
+- Update CTA to point to `/dashboard` (which will redirect to sign-up if needed, or we can handle it in the link logic).
+
 
 
 ## Verification Plan
@@ -89,3 +123,10 @@ I will create a new directory `components/landing` to organize landing page spec
     - Confirm gradients and animations play.
 - **Supabase Connection**:
     - verify that the supabase client can connect to the database by checking the network tab or console logs for any connection errors.
+- **Clerk Authentication**:
+    - Verify navigating to `/sign-in` and `/sign-up` shows the Clerk forms.
+    - Test signing up a new user (if keys are valid) or checking the redirect logic.
+- **User Sync & Dashboard**:
+    - Verify navigating to `/dashboard` redirects efficiently or shows content if logged in.
+    - Verify "Dashboard" button appears in Navbar/Hero and links correctly.
+    - (Manual DB Check): Verify user record appears in Supabase `users` table after accessing dashboard.

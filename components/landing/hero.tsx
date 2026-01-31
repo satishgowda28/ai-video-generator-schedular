@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -34,9 +35,11 @@ export function Hero() {
             </div>
 
             <div className="flex flex-col gap-3 min-[400px]:flex-row justify-center lg:justify-start">
-              <Button size="lg" className="gap-2 h-12 px-8 text-md group">
-                Start Generating Free
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Button size="lg" className="gap-2 h-12 px-8 text-md group" asChild>
+                <Link href="/dashboard">
+                  Start Generating Free
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </Button>
               <Button size="lg" variant="outline" className="gap-2 h-12 px-8 text-md">
                 <Play className="h-4 w-4" />

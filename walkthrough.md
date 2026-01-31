@@ -1,6 +1,4 @@
-# Landing Page Implementation Walkthrough
-
-I have implemented the modern landing page for the AI Video Generator & Scheduler SaaS.
+# Landing Page & Supabase Implementation Walkthrough
 
 ## Changes
 
@@ -25,8 +23,8 @@ I created a dedicated `components/landing` directory containing:
 - **Environment**: Created `[.env.local.example](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/.env.local.example)` with the necessary environment variable templates.
 - **Client Utility**: Created `[lib/supabase/client.ts](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/lib/supabase/client.ts)` for initiating the Supabase client.
 - **Server Utility**: Created `[lib/supabase/server.ts](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/lib/supabase/server.ts)` for server-side client with cookie handling.
-- **Global Provider**: Created `[components/supabase-provider.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/components/supabase-provider.tsx)` to provide the Supabase client globally via React Context.
-- **Layout Wrapper**: Wrapped the root layout with `SupabaseProvider` to ensure all components have access to the Supabase client.
+- **Documentation**: Updated `[README.md](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/README.md)` with setup instructions.
+- (*Reverted*): Global `SupabaseProvider` was removed as per request to favor direct API/Server Action usage.
 
 ## Verification Results
 
@@ -37,4 +35,4 @@ I created a dedicated `components/landing` directory containing:
 - **Visuals**: The landing page renders with the intended layout and styling.
 - **Responsiveness**: The navbar correctly switches to a hamburger menu on mobile devices.
 - **Theme**: The theme toggle correctly switches and persists theme preferences.
-- **Supabase**: The `SupabaseProvider` is now initialized at the root level.
+- **Supabase**: The initialized clients are type-safe and ready for use in API routes and Server Actions.

@@ -25,9 +25,11 @@ A powerful SaaS application to automate content creation and scheduling for YouT
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
 - **UI Components**: [Shadcn UI](https://ui.shadcn.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
+- **Database/Auth**: [Supabase](https://supabase.com/)
 
 ## Getting Started
 
+### 1. Project Setup
 First, run the development server:
 
 ```bash
@@ -39,6 +41,18 @@ pnpm dev
 # or
 bun dev
 ```
+
+### 2. Supabase Setup
+This project uses Supabase for the database and authentication.
+
+1.  Copy the example environment file:
+    ```bash
+    cp .env.local.example .env.local
+    ```
+2.  Update `.env.local` with your Supabase credentials:
+    - `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase Project URL.
+    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase Anon Key.
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

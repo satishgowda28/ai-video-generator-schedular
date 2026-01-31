@@ -37,3 +37,9 @@
     - [x] Create `actions/user.ts` (Server Action) <!-- id: 35 -->
     - [x] Update `app/dashboard/page.tsx` to use server action <!-- id: 36 -->
     - [x] Update sync logic to save only `user_id`, `name`, `email` <!-- id: 37 -->
+- [x] Dashboard Layout <!-- id: 39 -->
+    - [x] Generate `public/logo.png` <!-- id: 40 -->
+    - [x] Create `components/dashboard/sidebar.tsx` <!-- id: 41 -->
+    - [x] Create `components/dashboard/header.tsx` <!-- id: 42 -->
+    - [x] Create `app/dashboard/layout.tsx` <!-- id: 43 -->
+    - [x] Update `app/dashboard/page.tsx` (remove redundant checks/ui) <!-- id: 44 -->

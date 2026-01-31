@@ -105,7 +105,22 @@ I will create a new directory `components/landing` to organize landing page spec
 #### [MODIFY] [components/landing/hero.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/components/landing/hero.tsx)
 - Update CTA to point to `/dashboard` (which will redirect to sign-up if needed, or we can handle it in the link logic).
 
+#### [NEW] [app/dashboard/layout.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/app/dashboard/layout.tsx)
+- Wrap dashboard in a layout with Sidebar and Header.
 
+#### [NEW] [components/dashboard/sidebar.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/components/dashboard/sidebar.tsx)
+- Header with Logo (from public/logo.png).
+- "+ Create New Series" button.
+- Main Options: Series, Videos, Guide, Billing, Settings.
+- Bottom Options: Upgrade, Profile Settings.
+- Collapsible logic.
+
+#### [NEW] [components/dashboard/header.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/components/dashboard/header.tsx)
+- Right side: User Profile button (Clerk), Theme Toggle.
+
+### Assets
+#### [NEW] [public/logo.png](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/public/logo.png)
+- Generate a logo for the application.
 
 ## Verification Plan
 

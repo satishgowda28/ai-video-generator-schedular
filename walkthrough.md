@@ -37,6 +37,15 @@ I created a dedicated `components/landing` directory containing:
 - **Dashboard Page**: Created `[app/dashboard/page.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/app/dashboard/page.tsx)` which calls `syncUser()` on load.
 - **Navigation**: Updated `Navbar` and `Hero` to link to `/dashboard`.
 
+### Dashboard Layout
+- **Sidebar**: Created `[components/dashboard/sidebar.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/components/dashboard/sidebar.tsx)` features:
+    - Collapsible functionality.
+    - Application Logo (`public/logo.png`).
+    - "+ Create New Series" CTA.
+    - Navigation items (Series, Videos, Guide, Billing, Settings, Upgrade, Profile).
+- **Header**: Created `[components/dashboard/header.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/components/dashboard/header.tsx)` containing the `UserButton` and `ModeToggle`.
+- **Layout**: Created `[app/dashboard/layout.tsx](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/app/dashboard/layout.tsx)` to wrap dashboard pages with the Sidebar and Header.
+
 ## Verification Results
 
 ### Automated Tests
@@ -45,5 +54,5 @@ I created a dedicated `components/landing` directory containing:
 ### Manual Verification
 - **Visuals**: The landing page renders with the intended layout and styling.
 - **Auth Flow**: Users can sign up/in.
-- **Dashboard**: Authenticated users can access the dashboard.
-- **Sync**: The `syncUser` action is invoked when visiting the dashboard to sync `user_id`, `name`, and `email` to Supabase, bypassing RLS using the Admin Client.
+- **Dashboard**: Authenticated users see the new layout with the collapsible sidebar and header. The logo is visible in the sidebar. Navigation links are present.
+- **Sync**: User sync continues to work correctly on dashboard access.

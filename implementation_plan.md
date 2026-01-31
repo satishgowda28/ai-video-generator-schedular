@@ -58,6 +58,21 @@ I will create a new directory `components/landing` to organize landing page spec
     - `<Features />`
     - `<Footer />`
 
+### Supabase Integration
+#### [NEW] [package.json](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/package.json)
+- Install `@supabase/supabase-js` and `@supabase/ssr`.
+
+#### [NEW] [.env.local.example](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/.env.local.example)
+- Add templates for `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+
+#### [NEW] [lib/supabase/client.ts](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/lib/supabase/client.ts)
+- Create a typed Supabase client for client-side components using `createBrowserClient`.
+
+#### [NEW] [lib/supabase/server.ts](file:///Users/satishgowda/DEV/AI_Learning/ai_video_generator_schedular/lib/supabase/server.ts)
+- Create a typed Supabase client for server-side components (Server Actions, Route Handlers) using `createServerClient` with cookie handling.
+
+
+
 ## Verification Plan
 
 ### Automated Tests
@@ -72,3 +87,5 @@ I will create a new directory `components/landing` to organize landing page spec
 - **Visual Check**:
     - Confirm fonts are loaded.
     - Confirm gradients and animations play.
+- **Supabase Connection**:
+    - verify that the supabase client can connect to the database by checking the network tab or console logs for any connection errors.

@@ -1,5 +1,6 @@
 "use client"
 
+import { getSeriesById, updateSeries } from "@/actions/video"
 import { CreateFormNavigation } from "@/components/create/create-navigation"
 import { CreateFormStepper } from "@/components/create/create-stepper"
 import { Step1NicheSelection } from "@/components/create/step-1-niche"
@@ -9,12 +10,22 @@ import { Step4VideoStyle } from "@/components/create/step-4-video-style"
 import { Step5CaptionStyle } from "@/components/create/step-5-caption-style"
 import { Step6FinalDetails } from "@/components/create/step-6-review"
 import { VideoCreationData } from "@/types"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { Suspense, useEffect, useState } from "react"
 import { toast } from "sonner"
 
 export default function CreatePage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CreatePageContent />
+    </Suspense>
+  )
+}
+
+function CreatePageContent() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const seriesId = searchParams.get('id')
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState<VideoCreationData>({
@@ -27,9 +38,44 @@ export default function CreatePage() {
     captionStyle: "",
     seriesName: "",
     duration: "",
-    platform: "",
+    platform: [],
     scheduleTime: "",
   })
+
+  useEffect(() => {
+    async function fetchSeriesData() {
+        if (!seriesId) return;
+
+        try {
+            const result = await getSeriesById(seriesId);
+            if (result.error || !result.data) {
+                toast.error("Failed to load series data");
+                return;
+            }
+
+            const series = result.data;
+            setFormData({
+                niche: series.niche,
+                language: series.language,
+                voice: series.voice,
+                music: series.music,
+                videoStyle: series.video_style,
+                captionStyle: series.caption_style,
+                seriesName: series.series_name,
+                duration: series.duration as "30-50" | "60-70" | "",
+                platform: series.platform ? series.platform.split(',') : [],
+                scheduleTime: series.schedule_time ? new Date(series.schedule_time).toISOString().slice(0, 16) : "",
+            });
+             // Optionally trigger a toast or just let the user see the data
+             console.log("Form pre-filled with series data");
+        } catch (err) {
+            console.error(err);
+            toast.error("Error loading series");
+        }
+    }
+
+    fetchSeriesData();
+  }, [seriesId]);
   const totalSteps = 6
 
   const handleNext = () => {
@@ -51,12 +97,29 @@ export default function CreatePage() {
       setIsSubmitting(true)
       console.log("Submitting formData:", formData)
 
+      if (seriesId) {
+          const result = await updateSeries(seriesId, formData);
+          if (result.error) {
+              toast.error(result.error);
+              return;
+          }
+          toast.success("Series updated successfully!");
+          router.push("/dashboard");
+          return;
+      }
+
+      const submissionData = {
+          ...formData,
+          // If the API expects a comma-separated string for platform
+          platform: formData.platform.join(',')
+      }
+
       const response = await fetch("/api/videos/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submissionData),
       })
 
       const result = await response.json()
@@ -98,7 +161,7 @@ export default function CreatePage() {
       case 5:
         return !formData.captionStyle
       case 6:
-        return !formData.seriesName || !formData.duration || !formData.platform || !formData.scheduleTime
+        return !formData.seriesName || !formData.duration || formData.platform.length === 0 || !formData.scheduleTime
       default:
         return false
     }
@@ -165,7 +228,7 @@ export default function CreatePage() {
         isBackDisabled={currentStep === 1}
         isNextDisabled={isNextDisabled()}
         isLoading={isSubmitting}
-        nextLabel={currentStep === 6 ? "Publish" : "Continue"}
+        nextLabel={currentStep === 6 ? (seriesId ? "Update Changes" : "Publish") : "Continue"}
       />
     </div>
   )

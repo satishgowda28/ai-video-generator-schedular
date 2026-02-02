@@ -33,7 +33,7 @@ export async function POST(req: Request) {
         caption_style: data.captionStyle,
         series_name: data.seriesName,
         duration: data.duration,
-        platform: data.platform,
+        platform: Array.isArray(data.platform) ? data.platform.join(',') : (data.platform as unknown as string),
         schedule_time: data.scheduleTime || null,
         status: "pending",
       })

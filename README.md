@@ -33,6 +33,8 @@ A powerful SaaS application to automate content creation and scheduling for YouT
     - **Step 4: Video Style**: Visual style selection (Realist, Cartoon, etc.) with previews.
     - **Step 5: Caption Style**: Animated caption style selection.
     - **Step 6: Review & Generate**: Final review of all settings before generation.
+    - **Edit Mode**: Ability to edit existing video series details with pre-filled form data.
+    - **Multi-Platform Selection**: Select multiple platforms (YouTube, Instagram, TikTok) for a single series.
 
 
 ## Tech Stack

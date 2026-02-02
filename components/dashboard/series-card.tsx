@@ -74,12 +74,11 @@ export function SeriesCard({ series }: SeriesCardProps) {
           size="icon"
           variant="secondary"
           className="absolute top-2 right-2 h-8 w-8 opacity-0 transition-opacity group-hover:opacity-100 shadow-sm"
-          onClick={(e) => {
-              e.preventDefault()
-              console.log("Edit series:", series.id)
-          }}
+          asChild
         >
-          <Edit className="h-4 w-4" />
+          <Link href={`/dashboard/create?id=${series.id}`}>
+            <Edit className="h-4 w-4" />
+          </Link>
         </Button>
       </div>
 
@@ -105,8 +104,10 @@ export function SeriesCard({ series }: SeriesCardProps) {
             </PopoverTrigger>
             <PopoverContent align="end" className="w-40 p-1">
               <div className="grid gap-1">
-                <Button variant="ghost" size="sm" className="justify-start gap-2 h-8">
-                  <Edit className="h-4 w-4" /> Edit
+                <Button variant="ghost" size="sm" className="justify-start gap-2 h-8" asChild>
+                  <Link href={`/dashboard/create?id=${series.id}`}>
+                    <Edit className="h-4 w-4" /> Edit
+                  </Link>
                 </Button>
                 <Button 
                     variant="ghost" 

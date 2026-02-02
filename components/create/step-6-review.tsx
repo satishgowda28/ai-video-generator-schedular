@@ -10,7 +10,7 @@ import { VideoCreationData } from "@/types"
 interface Step6FinalDetailsProps {
   seriesName: string
   duration: "30-50" | "60-70" | ""
-  platform: string
+  platform: string[]
   scheduleTime: string
   onUpdate: (field: keyof VideoCreationData, value: any) => void
 }
@@ -75,17 +75,22 @@ export function Step6FinalDetails({
                     if (typeof p === "boolean" || !p) return null
                     const platformData = p as unknown as PlatformItem
                     const Icon = platformData.icon
-                    const isSelected = platform === platformData.id
+                    const isSelected = platform.includes(platformData.id)
                     return (
                         <div
                             key={platformData.id}
-                            onClick={() => onUpdate("platform", platformData.id)}
+                            onClick={() => {
+                                const newPlatforms = isSelected
+                                    ? platform.filter(id => id !== platformData.id)
+                                    : [...platform, platformData.id]
+                                onUpdate("platform", newPlatforms)
+                            }}
                             className={cn(
                                 "cursor-pointer rounded-xl border-2 p-4 flex flex-col items-center justify-center gap-2 transition-all hover:opacity-90",
                                 isSelected ? "border-primary ring-2 ring-primary/20 bg-primary/5" : "border-muted bg-card hover:bg-accent",
                             )}
                         >
-                            <div className={cn("p-2 rounded-full", platformData.color)}>
+                            <div className={cn("p-2 rounded-full", isSelected ? platformData.color : "bg-muted text-muted-foreground")}>
                                 <Icon className="w-6 h-6" />
                             </div>
                             <span className="text-sm font-medium">{platformData.name}</span>

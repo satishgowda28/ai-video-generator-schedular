@@ -44,3 +44,5 @@
     - [x] Create `app/dashboard/layout.tsx` <!-- id: 43 -->
     - [x] Update `app/dashboard/page.tsx` (remove redundant checks/ui) <!-- id: 44 -->
     - [x] Update `components/dashboard/header.tsx` with logo <!-- id: 45 -->
+- [x] Documentation <!-- id: 46 -->
+    - [x] Update README.md <!-- id: 47 -->

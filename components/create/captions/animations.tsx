@@ -113,3 +113,14 @@ export const CaptionSlide = ({ text, isActive }: AnimationProps) => {
     </div>
   )
 }
+
+export const CaptionHighlight = ({ text, isActive }: AnimationProps) => {
+    return (
+        <div className={cn(
+            "font-bold text-lg px-2 py-1 rounded transition-all duration-300 transform",
+            isActive ? "bg-yellow-400 text-black scale-110 rotate-1 shadow-md" : "bg-transparent text-foreground scale-100"
+        )}>
+            {text}
+        </div>
+    )
+}

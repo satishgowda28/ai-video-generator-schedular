@@ -25,10 +25,14 @@ A powerful SaaS application to automate content creation and scheduling for YouT
     - **Header**: User profile and theme toggle.
     - **Layout**: Persistent sidebar and header across dashboard pages.
 - **Theme Support**: Light, Dark, and System modes.
-- **Video Creation Form** (In Progress):
+- **Video Creation Form**:
     - **Visual Stepper**: 6-step wizard interface.
     - **Step 1: Niche**: Select from presets with icons or custom entry.
-    - **Step 2: Topic & Language**: Detailed input and language selection.
+    - **Step 2: Topic & Language**: Detailed input, language, and voice selection.
+    - **Step 3: Background Music**: Select mood/genre for background audio.
+    - **Step 4: Video Style**: Visual style selection (Realist, Cartoon, etc.) with previews.
+    - **Step 5: Caption Style**: Animated caption style selection.
+    - **Step 6: Review & Generate**: Final review of all settings before generation.
 
 
 ## Tech Stack

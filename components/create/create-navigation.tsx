@@ -8,6 +8,7 @@ interface CreateFormNavigationProps {
   onNext: () => void
   isBackDisabled?: boolean
   isNextDisabled?: boolean
+  nextLabel?: string
 }
 
 export function CreateFormNavigation({
@@ -15,6 +16,7 @@ export function CreateFormNavigation({
   onNext,
   isBackDisabled,
   isNextDisabled,
+  nextLabel = "Continue",
 }: CreateFormNavigationProps) {
   return (
     <div className="flex justify-between items-center pt-4 border-t">
@@ -27,7 +29,7 @@ export function CreateFormNavigation({
         <ArrowLeft className="w-4 h-4" /> Back
       </Button>
       <Button onClick={onNext} disabled={isNextDisabled} className="gap-2">
-        Continue <ArrowRight className="w-4 h-4" />
+        {nextLabel} <ArrowRight className="w-4 h-4" />
       </Button>
     </div>
   )

@@ -7,6 +7,7 @@ import { Step2Topic } from "@/components/create/step-2-topic"
 import { Step3BackgroundMusic } from "@/components/create/step-3-music"
 import { Step4VideoStyle } from "@/components/create/step-4-video-style"
 import { Step5CaptionStyle } from "@/components/create/step-5-caption-style"
+import { Step6FinalDetails } from "@/components/create/step-6-review"
 import { VideoCreationData } from "@/types"
 import { useState } from "react"
 
@@ -20,6 +21,10 @@ export default function CreatePage() {
     music: "",
     videoStyle: "",
     captionStyle: "",
+    seriesName: "",
+    duration: "",
+    platform: "",
+    scheduleTime: "",
   })
   const totalSteps = 6
 
@@ -58,6 +63,8 @@ export default function CreatePage() {
         return !formData.videoStyle
       case 5:
         return !formData.captionStyle
+      case 6:
+        return !formData.seriesName || !formData.duration || !formData.platform || !formData.scheduleTime
       default:
         return false
     }
@@ -107,11 +114,14 @@ export default function CreatePage() {
                 onCaptionStyleChange={(value: string) => updateFormData("captionStyle", value)}
             />
         )}
-        {/* Placeholder for other steps */}
-        {currentStep > 5 && (
-            <div className="flex items-center justify-center h-full">
-                <p className="text-muted-foreground">Step {currentStep} Content Placeholder</p>
-            </div>
+        {currentStep === 6 && (
+            <Step6FinalDetails
+                seriesName={formData.seriesName}
+                duration={formData.duration}
+                platform={formData.platform}
+                scheduleTime={formData.scheduleTime}
+                onUpdate={updateFormData}
+            />
         )}
       </div>
 
@@ -120,6 +130,7 @@ export default function CreatePage() {
         onNext={handleNext}
         isBackDisabled={currentStep === 1}
         isNextDisabled={isNextDisabled()}
+        nextLabel={currentStep === 6 ? "Publish" : "Continue"}
       />
     </div>
   )

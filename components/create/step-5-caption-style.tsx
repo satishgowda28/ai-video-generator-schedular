@@ -4,7 +4,7 @@ import { CaptionStyles } from "@/constants"
 import { cn } from "@/lib/utils"
 import { Check } from "lucide-react"
 import { useEffect, useState } from "react"
-import { CaptionBounce, CaptionFade, CaptionKaraoke, CaptionPop, CaptionSlide, CaptionTypewriter } from "./captions/animations"
+import { CaptionBounce, CaptionFade, CaptionHighlight, CaptionKaraoke, CaptionPop, CaptionSlide, CaptionTypewriter } from "./captions/animations"
 
 interface Step5CaptionStyleProps {
   captionStyle: string
@@ -18,6 +18,7 @@ const RENDERERS: Record<string, any> = {
   fade: CaptionFade,
   bounce: CaptionBounce,
   slide: CaptionSlide,
+  highlight: CaptionHighlight,
 }
 
 export function Step5CaptionStyle({

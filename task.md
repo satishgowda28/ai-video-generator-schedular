@@ -47,7 +47,7 @@
 - [x] Documentation <!-- id: 46 -->
     - [x] Update README.md <!-- id: 47 -->
 
-- [ ] Video Creation Form <!-- id: 48 -->
+- [x] Video Creation Form <!-- id: 48 -->
     - [x] **Step 1: Niche Selection**
         - [x] Create layout and Niche Cards
         - [x] Implement "Available" and "Custom" tabs
@@ -66,5 +66,8 @@
     - [x] **Step 5: Caption Style**
         - [x] Create `Step5CaptionStyle` component
         - [x] Integrate `captionStyle` into `VideoCreationData`
-    - [ ] **Step 6: Review & Generate**
+    - [x] **Step 6: Review & Generate**
+        - [x] Create `Step6FinalDetails` component
+        - [x] Integrate `seriesName`, `duration`, `platform`, `scheduleTime` into `VideoCreationData`
+        - [x] Update form navigation logic
 

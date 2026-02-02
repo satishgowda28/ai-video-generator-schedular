@@ -224,5 +224,10 @@ export const CaptionStyles = [
         name: "Slide",
         id: "slide",
         description: "Slide in from bottom"
+    },
+    {
+        name: "Highlight",
+        id: "highlight",
+        description: "Yellow background highlight"
     }
 ]

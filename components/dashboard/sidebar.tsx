@@ -94,9 +94,11 @@ export function Sidebar({ className }: SidebarProps) {
                     <span className="font-bold text-xl">AI Video Gen</span>
                 </div>
                  <div className="p-4">
-                     <Button className="w-full gap-2 mb-6" size="lg">
-                        <Plus className="h-4 w-4" />
-                        Create New Series
+                     <Button className="w-full gap-2 mb-6" size="lg" asChild>
+                        <Link href="/dashboard/create">
+                            <Plus className="h-4 w-4" />
+                            Create New Series
+                        </Link>
                      </Button>
                       <div className="space-y-1">
                         {navItems.map((item) => (
@@ -176,13 +178,17 @@ export function Sidebar({ className }: SidebarProps) {
 
         <div className="p-4 flex-1 flex flex-col gap-4">
              {collapsed ? (
-                  <Button size="icon" className="mx-auto" title="Create New Series">
-                      <Plus className="h-4 w-4" />
+                  <Button size="icon" className="mx-auto" title="Create New Series" asChild>
+                      <Link href="/dashboard/create">
+                          <Plus className="h-4 w-4" />
+                      </Link>
                   </Button>
              ) : (
-                  <Button className="w-full gap-2" size="lg">
-                    <Plus className="h-4 w-4" />
-                    Create New Series
+                  <Button className="w-full gap-2" size="lg" asChild>
+                    <Link href="/dashboard/create">
+                        <Plus className="h-4 w-4" />
+                        Create New Series
+                    </Link>
                  </Button>
              )}
 

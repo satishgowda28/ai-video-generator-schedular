@@ -3,4 +3,6 @@ export interface VideoCreationData {
   topic: string;
   language: string;
   voice: string;
+  music: string;
+  videoStyle: string;
 }

@@ -137,3 +137,59 @@ export const FonadalabVoices = [
         "gender": "female"
     }
 ]
+
+export const BackgroundMusic = [
+    {
+        name: "Instagram Reels Marketing",
+        url: "https://ik.imagekit.io/Tubeguruji/BgMusic/instagram-reels-marketing-music-469052.mp3"
+    },
+    {
+        name: "Marketing Music",
+        url: "https://ik.imagekit.io/Tubeguruji/BgMusic/instagram-reels-marketing-music-384448.mp3"
+    },
+    {
+        name: "Trending Reels Music",
+        url: "https://ik.imagekit.io/Tubeguruji/BgMusic/trending-instagram-reels-music-447249.mp3"
+    },
+    {
+        name: "Dramatic Hip Hop",
+        url: "https://ik.imagekit.io/Tubeguruji/BgMusic/dramatic-hip-hop-music-background-jazz-music-for-short-video-148505.mp3"
+    },
+    {
+        name: "Basketball Reels",
+        url: "https://ik.imagekit.io/Tubeguruji/BgMusic/basketball-instagram-reels-music-461852.mp3"
+    }
+]
+
+export const VideoStyles = [
+    {
+        name: "Realistic",
+        image: "/video-style/realistic.png",
+        id: "realistic"
+    },
+    {
+        name: "Cinematic",
+        image: "/video-style/cinematic.png",
+        id: "cinematic"
+    },
+    {
+        name: "3D Render",
+        image: "/video-style/3d-render.png",
+        id: "3d-render"
+    },
+    {
+        name: "Anime",
+        image: "/video-style/anime.png",
+        id: "anime"
+    },
+    {
+        name: "GTA",
+        image: "/video-style/gta.png",
+        id: "gta"
+    },
+    {
+        name: "Cyberpunk",
+        image: "/video-style/cyberpunk.png",
+        id: "cyberpunk"
+    }
+]

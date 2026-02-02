@@ -9,13 +9,17 @@ import { Step4VideoStyle } from "@/components/create/step-4-video-style"
 import { Step5CaptionStyle } from "@/components/create/step-5-caption-style"
 import { Step6FinalDetails } from "@/components/create/step-6-review"
 import { VideoCreationData } from "@/types"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { toast } from "sonner"
 
 export default function CreatePage() {
+  const router = useRouter()
   const [currentStep, setCurrentStep] = useState(1)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState<VideoCreationData>({
     niche: null,
-    topic: "",
+
     language: "",
     voice: "",
     music: "",
@@ -42,9 +46,39 @@ export default function CreatePage() {
     }
   }
 
-  const handleSubmit = () => {
-    console.log("Form Submitted:", formData)
-    // Here you would typically send the data to an API
+  const handleSubmit = async () => {
+    try {
+      setIsSubmitting(true)
+      console.log("Submitting formData:", formData)
+
+      const response = await fetch("/api/videos/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || result.error) {
+         console.error("Error submitting form:", result.error)
+         toast.error(result.error || "Failed to create video")
+         return
+      }
+
+      console.log("Video created successfully:", result.video)
+      toast.success("Video generated successfully!")
+
+      // Redirect to dashboard or videos list
+      router.push("/dashboard")
+
+    } catch (error) {
+       console.error("Unexpected error:", error)
+       toast.error("An unexpected error occurred.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const updateFormData = (field: keyof VideoCreationData, value: any) => {
@@ -130,6 +164,7 @@ export default function CreatePage() {
         onNext={handleNext}
         isBackDisabled={currentStep === 1}
         isNextDisabled={isNextDisabled()}
+        isLoading={isSubmitting}
         nextLabel={currentStep === 6 ? "Publish" : "Continue"}
       />
     </div>

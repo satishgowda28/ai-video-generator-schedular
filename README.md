@@ -28,7 +28,7 @@ A powerful SaaS application to automate content creation and scheduling for YouT
 - **Video Creation Form**:
     - **Visual Stepper**: 6-step wizard interface.
     - **Step 1: Niche**: Select from presets with icons or custom entry.
-    - **Step 2: Topic & Language**: Detailed input, language, and voice selection.
+    - **Step 2: Language & Voice**: Language and voice selection.
     - **Step 3: Background Music**: Select mood/genre for background audio.
     - **Step 4: Video Style**: Visual style selection (Realist, Cartoon, etc.) with previews.
     - **Step 5: Caption Style**: Animated caption style selection.

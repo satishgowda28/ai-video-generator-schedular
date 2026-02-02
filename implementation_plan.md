@@ -8,9 +8,9 @@ Implement a multi-step wizard for generating AI videos. The form collects user i
 - **Features**: 6 predefined niches with icons + Custom input.
 - **State**: Persisted in `formData.niche`.
 
-### Step 2: Topic & Language
-- **Features**: Detailed topic textarea + Language dropdown + Voice selection.
-- **State**: Persisted in `formData.topic`, `formData.language`, `formData.voice`.
+### Step 2: Language & Voice
+- **Features**: Language dropdown + Voice selection.
+- **State**: Persisted in `formData.language`, `formData.voice`.
 
 ### Step 3: Background Music
 - **Goal**: Select mood or specific track.
@@ -30,7 +30,7 @@ Implement a multi-step wizard for generating AI videos. The form collects user i
 ### Step 6: Review & Generate
 - **Goal**: Summary screen and final submission.
 - **Features**: 
-    - Read-only review of all selections (Niche, Topic, Language, Style, etc.).
+    - Read-only review of all selections (Niche, Language, Style, etc.).
     - Final details input: Series Name, Duration, Platform, Schedule Time.
     - "Generate Video" button triggering API call (Log to console for now).
 - **State**: Persisted in `formData.seriesName`, `formData.duration`, `formData.platform`, `formData.scheduleTime`.

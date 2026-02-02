@@ -53,8 +53,8 @@
         - [x] Implement "Available" and "Custom" tabs
         - [x] Add icons to Niche Cards
         - [x] Unified Form State (`VideoCreationData`)
-    - [x] **Step 2: Topic & Language**
-        - [x] Add `topic` and `language` to schema
+    - [x] **Step 2: Language & Voice**
+        - [x] Add `language` to schema
         - [x] Create `Step2Topic` component
         - [x] Integrate validation
     - [x] **Step 3: Background Music**

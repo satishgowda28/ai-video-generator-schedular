@@ -9,37 +9,36 @@ Implement a multi-step wizard for generating AI videos. The form collects user i
 - **State**: Persisted in `formData.niche`.
 
 ### Step 2: Topic & Language
-- **Features**: Detailed topic textarea + Language dropdown.
-- **State**: Persisted in `formData.topic` and `formData.language`.
+- **Features**: Detailed topic textarea + Language dropdown + Voice selection.
+- **State**: Persisted in `formData.topic`, `formData.language`, `formData.voice`.
+
+### Step 3: Background Music
+- **Goal**: Select mood or specific track.
+- **Features**: List of moods (Happy, Power, Chill, etc.) + "No Music" option.
+- **State**: Persisted in `formData.music`.
+
+### Step 4: Video Style
+- **Goal**: Select the visual style of the video.
+- **Features**: Grid of image cards representing styles (Realistic, Cartoon, Cinematic, etc.).
+- **State**: Persisted in `formData.videoStyle`.
+
+### Step 5: Caption Style
+- **Goal**: Choose animated caption style.
+- **Features**: Interactive previews of caption animations (Karaoke, Pop, Typewriter, etc.).
+- **State**: Persisted in `formData.captionStyle`.
+
+### Step 6: Review & Generate
+- **Goal**: Summary screen and final submission.
+- **Features**: 
+    - Read-only review of all selections (Niche, Topic, Language, Style, etc.).
+    - Final details input: Series Name, Duration, Platform, Schedule Time.
+    - "Generate Video" button triggering API call (Log to console for now).
+- **State**: Persisted in `formData.seriesName`, `formData.duration`, `formData.platform`, `formData.scheduleTime`.
 
 ### Infrastructure
 - **State Management**: Unified `createPage` state (`VideoCreationData`).
 - **Navigation**: "Next" (validated) and "Back" buttons.
 - **Stepper**: Visual progress indicator.
-
-## Upcoming Steps
-
-### Step 3: Video Style
-**Goal**: Select the visual style of the video (e.g., Realistic, Cartoon, Cinematic).
-- **UI**: Grid of image cards representing styles.
-- **Data**: `style: string`.
-
-### Step 4: Duration & Ratio
-**Goal**: Choose video length and aspect ratio.
-- **UI**:
-    - Duration: Slider or Button Group (30s, 60s, 90s).
-    - Ratio: Toggle (9:16 Vertical, 16:9 Horizontal).
-- **Data**: `duration: number`, `aspectRatio: string`.
-
-### Step 5: Background Music
-**Goal**: Select mood or specific track.
-- **UI**: List of moods (Happy, Sad, Epic) or "No Music" option.
-- **Data**: `musicMood: string`.
-
-### Step 6: Review & Generate
-**Goal**: Summary screen and final submission.
-- **UI**: Read-only view of all selections.
-- **Action**: "Generate Video" button triggering API call.
 
 ## Tech Stack
 - **State**: React `useState` (Unified Object).

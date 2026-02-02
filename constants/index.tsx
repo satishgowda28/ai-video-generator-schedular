@@ -231,3 +231,49 @@ export const CaptionStyles = [
         description: "Yellow background highlight"
     }
 ]
+
+import { Instagram, Mail, Youtube } from "lucide-react"
+
+export interface Platform {
+    id: string;
+    name: string;
+    icon: any;
+    color: string;
+}
+
+export const PLATFORMS: Platform[] = [
+  {
+    id: "tiktok",
+    name: "TikTok",
+    icon: (props: any) => (
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        height="1em"
+        width="1em"
+        {...props}
+      >
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
+      </svg>
+    ),
+    color: "bg-black text-white dark:bg-white dark:text-black",
+  },
+  {
+    id: "youtube",
+    name: "YouTube",
+    icon: Youtube,
+    color: "bg-red-600 text-white",
+  },
+  {
+    id: "instagram",
+    name: "Instagram",
+    icon: Instagram,
+    color: "bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white",
+  },
+  {
+    id: "email",
+    name: "Email",
+    icon: Mail,
+    color: "bg-blue-500 text-white",
+  },
+]

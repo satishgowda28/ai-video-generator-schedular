@@ -193,3 +193,36 @@ export const VideoStyles = [
         id: "cyberpunk"
     }
 ]
+
+export const CaptionStyles = [
+    {
+        name: "Karaoke",
+        id: "karaoke",
+        description: "Highlights current word"
+    },
+    {
+        name: "Pop",
+        id: "pop",
+        description: "Words pop in"
+    },
+    {
+        name: "Typewriter",
+        id: "typewriter",
+        description: "Letters reveal sequentially"
+    },
+    {
+        name: "Fade",
+        id: "fade",
+        description: "Elegant fade animation"
+    },
+    {
+        name: "Bounce",
+        id: "bounce",
+        description: "Playful bounce effect"
+    },
+    {
+        name: "Slide",
+        id: "slide",
+        description: "Slide in from bottom"
+    }
+]

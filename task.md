@@ -57,8 +57,14 @@
         - [x] Add `topic` and `language` to schema
         - [x] Create `Step2Topic` component
         - [x] Integrate validation
-    - [ ] **Step 3: Video Style**
-    - [ ] **Step 4: Duration & Ratio**
-    - [ ] **Step 5: Background Music**
+    - [x] **Step 3: Background Music**
+        - [x] Create `Step3BackgroundMusic` component
+        - [x] Integrate `music` into `VideoCreationData`
+    - [x] **Step 4: Video Style**
+        - [x] Create `Step4VideoStyle` component
+        - [x] Integrate `videoStyle` into `VideoCreationData`
+    - [x] **Step 5: Caption Style**
+        - [x] Create `Step5CaptionStyle` component
+        - [x] Integrate `captionStyle` into `VideoCreationData`
     - [ ] **Step 6: Review & Generate**
 

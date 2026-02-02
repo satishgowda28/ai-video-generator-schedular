@@ -5,4 +5,5 @@ export interface VideoCreationData {
   voice: string;
   music: string;
   videoStyle: string;
+  captionStyle: string;
 }

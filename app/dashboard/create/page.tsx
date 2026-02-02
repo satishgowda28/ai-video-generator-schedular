@@ -6,6 +6,7 @@ import { Step1NicheSelection } from "@/components/create/step-1-niche"
 import { Step2Topic } from "@/components/create/step-2-topic"
 import { Step3BackgroundMusic } from "@/components/create/step-3-music"
 import { Step4VideoStyle } from "@/components/create/step-4-video-style"
+import { Step5CaptionStyle } from "@/components/create/step-5-caption-style"
 import { VideoCreationData } from "@/types"
 import { useState } from "react"
 
@@ -18,6 +19,7 @@ export default function CreatePage() {
     voice: "",
     music: "",
     videoStyle: "",
+    captionStyle: "",
   })
   const totalSteps = 6
 
@@ -54,6 +56,8 @@ export default function CreatePage() {
         return !formData.music
       case 4:
         return !formData.videoStyle
+      case 5:
+        return !formData.captionStyle
       default:
         return false
     }
@@ -97,8 +101,14 @@ export default function CreatePage() {
             onVideoStyleChange={(value: string) => updateFormData("videoStyle", value)}
           />
         )}
+        {currentStep === 5 && (
+            <Step5CaptionStyle
+                captionStyle={formData.captionStyle}
+                onCaptionStyleChange={(value: string) => updateFormData("captionStyle", value)}
+            />
+        )}
         {/* Placeholder for other steps */}
-        {currentStep > 4 && (
+        {currentStep > 5 && (
             <div className="flex items-center justify-center h-full">
                 <p className="text-muted-foreground">Step {currentStep} Content Placeholder</p>
             </div>

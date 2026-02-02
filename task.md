@@ -71,3 +71,8 @@
         - [x] Integrate `seriesName`, `duration`, `platform`, `scheduleTime` into `VideoCreationData`
         - [x] Update form navigation logic
 
+- [ ] Dashboard Series Integration <!-- id: 50 -->
+    - [ ] Fetch user series via API Endpoint (`/api/videos`) <!-- id: 51 -->
+    - [ ] Redirect to Create if empty <!-- id: 52 -->
+    - [ ] Create `SeriesCard` component <!-- id: 53 -->
+    - [ ] Implement Edit/Delete/Pause actions <!-- id: 54 -->

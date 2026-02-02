@@ -11,3 +11,22 @@ export interface VideoCreationData {
   platform: string;
   scheduleTime: string; // ISO string for simplicity
 }
+
+export interface VideoSeries {
+  id: string;
+  user_id: string;
+  niche: string | null;
+  language: string;
+  voice: string;
+  music: string;
+  video_style: string;
+  caption_style: string;
+  series_name: string;
+  duration: string;
+  platform: string;
+  schedule_time: string | null;
+  status: string;
+  video_url: string | null;
+  created_at: string;
+  updated_at: string;
+}

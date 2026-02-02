@@ -35,10 +35,16 @@ Implement a multi-step wizard for generating AI videos. The form collects user i
     - "Generate Video" button triggering API call (Log to console for now).
 - **State**: Persisted in `formData.seriesName`, `formData.duration`, `formData.platform`, `formData.scheduleTime`.
 
-### Infrastructure
-- **State Management**: Unified `createPage` state (`VideoCreationData`).
-- **Navigation**: "Next" (validated) and "Back" buttons.
-- **Stepper**: Visual progress indicator.
+## Dashboard Series Integration (New)
+**Goal**: Display created series on the dashboard.
+- **Logic**: Fetch via `/api/videos` endpoint.
+- **Empty State**: Redirect to `/dashboard/create`.
+- **UI**: Grid of `SeriesCard` components.
+- **Card Features**:
+    - **Header**: Image placeholder (based on style) + Edit button (thumbnail).
+    - **Body**: Title (Series Name), Created Date.
+    - **Actions**: Popover (Edit, Pause/Resume, Delete).
+    - **Footer**: "View Generated Videos" link/button.
 
 ## Tech Stack
 - **State**: React `useState` (Unified Object).

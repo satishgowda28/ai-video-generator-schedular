@@ -4,7 +4,7 @@ import { CreateFormNavigation } from "@/components/create/create-navigation"
 import { CreateFormStepper } from "@/components/create/create-stepper"
 import { Step1NicheSelection } from "@/components/create/step-1-niche"
 import { Step2Topic } from "@/components/create/step-2-topic"
-import { VideoCreationData } from "@/components/create/types"
+import { VideoCreationData } from "@/types"
 import { useState } from "react"
 
 export default function CreatePage() {
@@ -13,6 +13,7 @@ export default function CreatePage() {
     niche: null,
     topic: "",
     language: "",
+    voice: "",
   })
   const totalSteps = 6
 
@@ -44,7 +45,7 @@ export default function CreatePage() {
       case 1:
         return !formData.niche
       case 2:
-        return !formData.topic || !formData.language
+        return !formData.language || !formData.voice
       default:
         return false
     }
@@ -70,10 +71,10 @@ export default function CreatePage() {
         )}
         {currentStep === 2 && (
           <Step2Topic
-            topic={formData.topic}
             language={formData.language}
-            onTopicChange={(value) => updateFormData("topic", value)}
+            voice={formData.voice}
             onLanguageChange={(value) => updateFormData("language", value)}
+            onVoiceChange={(value: string) => updateFormData("voice", value)}
           />
         )}
         {/* Placeholder for other steps */}
